@@ -12,7 +12,7 @@ Here, we'll do something a *lot* simpler. (Hey, you have to start somewhere!) We
 
 ## The play by play
 ### 1. Flask
-First, we create the "engine" of our application using Flask in `app.py`. We first load our libraries and instantiate a variable called `GLOBAL_LIST`.
+First, we create the "engine" of our application using Flask in `app.py`. We first load our libraries, create a `Flask` instance, and instantiate a variable called `GLOBAL_LIST`.
 
 ```python
 import pandas as pd
@@ -23,7 +23,9 @@ app = Flask(__name__)
 GLOBAL_LIST = []
 ```
 
-We then create two endpoints: a landing page that will serve our webpage with the button, and the endpoint that contains the values of `GLOBAL_LIST`. The endpoint for our webpage with the button is simple: we just render our HTML with `render_template`.
+We then create two endpoints:
+* A landing page that will serve our webpage with the button
+* The endpoint that contains the values of `GLOBAL_LIST`. The endpoint for our webpage with the button is simple: we just render our HTML with `render_template`. Note that Flask expects `index.html` to be in a `templates` folder.
 
 ```python
 @app.route('/')
@@ -47,7 +49,7 @@ def array():
         return jsonify("Success")
 ```
 
-I included `print(request.get_json())` in the `POST` method for debugging purposes; you can verify in the console whether the correct values are being sent. (I kept getting `None` until I fixed the JavaScript.)
+Note that our `PUT` method requires us to still return a JSON. I also included `print(request.get_json())` in the `POST` method for debugging purposes; you can verify in the console whether the correct values are being sent. (I kept getting `None` until I fixed the JavaScript.)
 
 Finally, we add the code to start our app when `python app.py` is run in bash.
 
@@ -101,6 +103,7 @@ We then create a function to send data to our Flask endpoint whenever the user c
 * `d3.request("/array")` refers to our endpoint
 * `.header("Content-Type", "application/json")` tells our endpoint that JSON data is being sent
 * `.post` sends the data (`Index: ${index}`), which we convert to JSON with (`JSON.stringify`). We need a callback to actually trigger the action, so we just send a log to the console.
+* We increment our index with `index++`
 
 ```javascript
 function handleClick(){
@@ -122,3 +125,9 @@ Finally, we use D3 to trigger `handleClick` whenever the user clicks our button.
 ```javascript
 d3.select("#button").on("click", handleClick);
 ```
+
+## Conclusions
+Woot! That was fun. Next steps will include having more meaningful information sent to the API endpoint, such as user input to a form. We can also have a more interesting endpoint, such as one that trains a model based on the sent data, or generates predictions for a set of inputs. Stay tuned.
+
+Best,<br>
+Matt
