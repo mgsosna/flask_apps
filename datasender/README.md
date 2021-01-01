@@ -137,15 +137,11 @@ python app.py
 
 Open a browser window and then type `localhost:5000` into the URL. This will take you to `index.html` where you can see our button in all its glory.
 
-<center>
-<img src="button.png">
-</center>
+![](button.png)
 
 Give into the temptation and press that button a few times. With the console open, you'll see confirmation that data is being sent to the `/array` endpoint.
 
-<center>
-<img src="console.png">
-</center>
+![](console.png)
 
 Finally, you can either type `localhost:5000/array` into your browser, or open a separate Python instance and type the following:
 
