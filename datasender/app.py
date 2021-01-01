@@ -11,9 +11,6 @@ def index():
 
 @app.route('/array', methods=['GET', 'POST'])
 def array():
-    """
-    | Modify an array
-    """
     if request.method == 'GET':
         return jsonify(GLOBAL_LIST)
     else:

@@ -32,9 +32,6 @@ Our second endpoint is a little more complicated, as we need functionality for b
 ```python
 @app.route('/array', methods=['GET', 'POST'])
 def array():
-    """
-    | Modify an array
-    """
     if request.method == 'GET':
         return jsonify(GLOBAL_LIST)
     else:
@@ -43,7 +40,7 @@ def array():
         return jsonify("Success")
 ```
 
-Note that our `PUT` method requires us to still return a JSON. I also included `print(request.get_json())` in the `POST` method for debugging purposes; you can verify in the console whether the correct values are being sent. (I kept getting `None` until I fixed the JavaScript.)
+Note that our `POST` method requires us to still return a JSON. I also included `print(request.get_json())` in the `POST` method for debugging purposes; you can verify in the console whether the correct values are being sent. (I kept getting `None` until I fixed the JavaScript.)
 
 Finally, we add the code to start our app when `python app.py` is run in bash.
 
