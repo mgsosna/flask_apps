@@ -4,14 +4,6 @@ Here's a challenge that took me quite a while to figure out and I'm excited to s
 
 Here, we'll do something a *lot* simpler. (Hey, you have to start somewhere!) We'll create a Flask app where whenever a user clicks a button on a page, JavaScript updates a variable and sends it to a Flask endpoint, which appends the data to a list. We can then use Python separately to request data from the URL and visualize the contents of the list.
 
-## Table of contents
-1. [The play by play](#the-play-by-play)
-  1. [Flask](#1-flask)
-  2. [HTML](#2-html)
-  3. [JavaScript](#3-javascript)
-2. [Using the app](#using-the-app)
-3. [Conclusions](#conclusions)
-
 ## The play by play
 ### 1. Flask
 First, we create the "engine" of our application using Flask in `app.py`. We first load our libraries, create a `Flask` instance, and instantiate a variable called `GLOBAL_LIST`.
