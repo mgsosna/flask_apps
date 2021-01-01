@@ -5,10 +5,12 @@ Here's a challenge that took me quite a while to figure out and I'm excited to s
 Here, we'll do something a *lot* simpler. (Hey, you have to start somewhere!) We'll create a Flask app where whenever a user clicks a button on a page, JavaScript updates a variable and sends it to a Flask endpoint, which appends the data to a list. We can then use Python separately to request data from the URL and visualize the contents of the list.
 
 ## Table of contents
-1. [Flask](#1-flask)
-2. [HTML](#2-html)
-3. [JavaScript](#3-javascript)
-4. [Conclusions](#conclusions)
+1. [The play by play](#the-play-by-play)
+  1. [Flask](#1-flask)
+  2. [HTML](#2-html)
+  3. [JavaScript](#3-javascript)
+2. [Using the app](#using-the-app)
+3. [Conclusions](#conclusions)
 
 ## The play by play
 ### 1. Flask
@@ -125,6 +127,35 @@ Finally, we use D3 to trigger `handleClick` whenever the user clicks our button.
 ```javascript
 d3.select("#button").on("click", handleClick);
 ```
+
+## Using the app
+So once we've written all this, how do we use our app? Head to the `datasender` directory and type the following into bash:
+
+```bash
+python app.py
+```
+
+Open a browser window and then type `localhost:5000` into the URL. This will take you to `index.html` where you can see our button in all its glory.
+
+<center>
+<img src="button.png">
+</center>
+
+Give into the temptation and press that button a few times. With the console open, you'll see confirmation that data is being sent to the `/array` endpoint.
+
+<center>
+<img src="console.png">
+</center>
+
+Finally, you can either type `localhost:5000/array` into your browser, or open a separate Python instance and type the following:
+
+```python
+import requests
+url = "http://localhost:5000/array"
+requests.get(url).json()  # ['Index: 0', 'Index: 1', 'Index: 2']
+```
+
+Magic. As a final note, the above code block will only work while your Flask app is running, and the array is deleted when the app closes. If you really want to know how many times you've clicked that button over our lifetime, look into saving data to a CSV $-$ or if you want to be fancy, [SQLAlchemy](https://www.sqlalchemy.org/).
 
 ## Conclusions
 Woot! That was fun. Next steps will include having more meaningful information sent to the API endpoint, such as user input to a form. We can also have a more interesting endpoint, such as one that trains a model based on the sent data, or generates predictions for a set of inputs. Stay tuned.
