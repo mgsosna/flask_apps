@@ -1,5 +1,4 @@
 import pandas as pd
-from typing import List
 from flask import Flask, jsonify, request, render_template
 
 app = Flask(__name__)

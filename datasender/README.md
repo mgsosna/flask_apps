@@ -12,11 +12,10 @@ Here, we'll do something a *lot* simpler. (Hey, you have to start somewhere!) We
 
 ## The play by play
 ### 1. Flask
-First, we create the "engine" of our application using Flask. We first load our libraries and instantiate a variable called `GLOBAL_LIST`.
+First, we create the "engine" of our application using Flask in `app.py`. We first load our libraries and instantiate a variable called `GLOBAL_LIST`.
 
 ```python
 import pandas as pd
-from typing import List
 from flask import Flask, jsonify, request, render_template
 
 app = Flask(__name__)
