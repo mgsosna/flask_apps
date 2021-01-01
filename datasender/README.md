@@ -8,7 +8,7 @@ Here, we'll do something a *lot* simpler. (Hey, you have to start somewhere!) We
 1. [Flask](#1-flask)
 2. [HTML](#2-html)
 3. [JavaScript](#3-javascript)
-4. [Next steps](#4-next-steps)
+4. [Conclusions](#conclusions)
 
 ## The play by play
 ### 1. Flask
