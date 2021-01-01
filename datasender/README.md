@@ -17,9 +17,9 @@ app = Flask(__name__)
 GLOBAL_LIST = []
 ```
 
-We then create two endpoints:
-* A landing page that will serve our webpage with the button
-* The endpoint that contains the values of `GLOBAL_LIST`. The endpoint for our webpage with the button is simple: we just render our HTML with `render_template`. Note that Flask expects `index.html` to be in a `templates` folder.
+We then create two endpoints: 1) a landing page that will serve our webpage with the button, and 2) the endpoint that contains the values of `GLOBAL_LIST`.
+
+The endpoint for our webpage with the button is simple: we just render our HTML with `render_template`. Note that Flask expects `index.html` to be in a `templates` folder.
 
 ```python
 @app.route('/')
