@@ -151,7 +151,7 @@ url = "http://localhost:5000/array"
 requests.get(url).json()  # ['Index: 0', 'Index: 1', 'Index: 2']
 ```
 
-Magic. As a final note, the above code block will only work while your Flask app is running, and the array is deleted when the app closes. If you really want to know how many times you've clicked that button over our lifetime, look into saving data to a CSV $-$ or if you want to be fancy, [SQLAlchemy](https://www.sqlalchemy.org/).
+Magic. As a final note, the above code block will only work while your Flask app is running, and the array is deleted when the app closes. If you really want to know how many times you've clicked that button over our lifetime, look into saving data to a CSV - or if you want to be fancy, [SQLAlchemy](https://www.sqlalchemy.org/).
 
 ## Conclusions
 Woot! That was fun. Next steps will include having more meaningful information sent to the API endpoint, such as user input to a form. We can also have a more interesting endpoint, such as one that trains a model based on the sent data, or generates predictions for a set of inputs. Stay tuned.
