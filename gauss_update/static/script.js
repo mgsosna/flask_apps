@@ -1,14 +1,38 @@
-var x = [];
+// Initialize the Plotly plot with a generic histogram
+function initPlot(){
 
-for(var i=0; i<500; i++){
-    x[i] = Math.random();
-};
+    var x = [];
+    for(var i=0; i<500; i++){
+        x[i] = Math.random();
+    };
 
-var trace = {
-    x: x,
-    type: 'histogram'
-};
+    var trace = {
+        x: x,
+        type: 'histogram'
+    };
 
-var data = [trace];
+    var data = [trace];
 
-Plotly.newPlot("plot", data);
+    Plotly.newPlot("plot", data);
+}
+
+// Update labels with value from sliders
+function updateLabels() {
+
+    var mean = document.getElementById("mean").value;
+    d3.select("#mean_label").html(`Mean: <strong>${mean}</strong>`);
+
+    var sd = document.getElementById("sd").value;
+    d3.select("#sd_label").html(`Standard deviation: <strong>${sd}</strong>`);
+}
+
+// Initialize page
+function init() {
+    initPlot();
+    updateLabels();
+}
+
+init();
+
+d3.select("#mean").on("input", updateLabels);
+d3.select("#sd").on("input", updateLabels);
