@@ -7,16 +7,42 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://d3js.org/d3-request.v1.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+
+    <style>
+      body {
+        padding-left: 10px;
+        padding-top: 2px;
+      }
+    </style>
+
 </head>
 <body>
     <h1>Visualize a distribution</h1>
     <div class="container-fluid">
 
+        <!-- Row for plot -->
         <div class="row">
+
+            <!-- Spacing to center plot -->
+            <div class="col-xs-2">
+            </div>
+
+            <div class="col-xs-6">
+                <div id="plot"></div>
+            </div>
+        </div>
+
+        <!-- Row for sliders -->
+        <div class="row">
+
+            <!-- Spacing to center sliders -->
+            <div class="col-xs-3">
+                </div>
+
             <div class="col-xs-4">
 
                 <div id="mean_label"></div>
-                <input type="range" id="mean" min="0" max="100"
+                <input type="range" id="mean" min="30" max="70"
                          value="50" step="10">
 
                  <div id="sd_label"></div>
@@ -24,11 +50,9 @@
                        value="1" step="1">
 
             </div>
-            <div class="col-xs-6">
-                <div id="plot">
-            </div>
         </div>
     </div>
+
     <!-- Change to src="static/script.js" when using Flask -->
     <script src="../static/script.js" charset="utf-8"></script>
 </body>

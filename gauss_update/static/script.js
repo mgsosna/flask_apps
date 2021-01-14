@@ -13,7 +13,12 @@ function initPlot(){
 
     var data = [trace];
 
-    Plotly.newPlot("plot", data);
+    var layout = {
+        title: "Normal distribution",
+        xaxis: {range: [10, 100]}
+    };
+
+    Plotly.newPlot("plot", data, layout);
 }
 
 // Update labels with value from sliders
