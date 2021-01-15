@@ -19,27 +19,15 @@ function createPlot(x) {
 // Get data
 function updateData() {
 
-    var inputs = {
-        loc: d3.select("#mean").property("value"),
-        scale: d3.select("#sd").property("value"),
-        size: 1000
-    };
+    var loc = d3.select("#mean").property("value");
+    var scale = d3.select("#sd").property("value");
 
-    json = JSON.stringify(inputs);
+    var url = `/normal/loc=${loc}&scale=${scale}`;
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/normal");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = handleData;
-    xhr.send(json);
-
-    function handleData() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var newData = JSON.parse(xhr.responseText.split(', '));
-            console.log(newData);
-            createPlot(newData);
-        }
-    }
+    d3.json(url, data => {
+        console.log(data);
+        createPlot(data);
+    });
 }
 
 // Update labels with value from sliders
