@@ -13,3 +13,6 @@ Dynamically update a plot of a normal distribution with sliders for the mean and
 ## 4. [Authentication](authentication)
 ![](authentication/login.png)
 A tiny proof-of-concept app with user login and authentication, following [this excellent tutorial](https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login) from DigitalOcean.
+
+## 5. [SQLAlchemy](sqlalchemy)
+A simple front-end to work with SQLite tables.
