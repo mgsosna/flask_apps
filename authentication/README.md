@@ -3,7 +3,28 @@ Practice for authenticating users, following [this tutorial](https://www.digital
 
 ![](login.png)
 
-## How to do it
+## How to run it
+Run the following in Terminal in the root directory of this project (`authentication`):
+
+```bash
+export FLASK_APP=project
+export FLASK_DEBUG=1
+```
+
+The database tables also must be instantiated for the app to work. Open a Python instance in the root directory of this project and type:
+
+```python
+from project import db, create_app
+db.create_all(app=create_app())
+```
+
+To run this project, type:
+
+```bash
+flask run
+```
+
+## How to build it
 The tutorial goes into excellent detail on how to create the app. But in summary:
 1. Create an `__init__.py` file with blueprints for `main.py` and `auth.py`, which contain the Flask endpoints for your main and authorization pages, respectively
 2. Start the `main` and `auth` endpoints
